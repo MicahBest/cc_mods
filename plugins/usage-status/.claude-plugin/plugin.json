@@ -1,0 +1,9 @@
+{
+  "name": "usage-status",
+  "version": "0.2.0",
+  "description": "Grey line under the prompt: context fill, 5-hour and weekly limit usage with reset countdowns",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "MicahBest"
+  }
+}
