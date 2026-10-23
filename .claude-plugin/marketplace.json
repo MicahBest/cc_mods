@@ -1,0 +1,14 @@
+{
+  "name": "cc-mods",
+  "owner": {
+    "name": "MicahBest"
+  },
+  "description": "MicahBest's Claude Code mods",
+  "plugins": [
+    {
+      "name": "usage-line",
+      "source": "./plugins/usage-line",
+      "description": "Desktop app: context fill and 5-hour/weekly limit usage with reset countdowns, above the prompt"
+    }
+  ]
+}
