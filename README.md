@@ -6,7 +6,7 @@ My [Claude Code](https://claude.com/claude-code) mods: a usage line for the term
 | --- | --- | --- |
 | [`statusline.py`](statusline.py) | Terminal | A status line script: the grey usage line, then `user@host:cwd`. Installed into `settings.json`. |
 | [`usage-line`](plugins/usage-line) | Desktop app | The same grey usage line, drawn above the prompt, without `user@host:cwd`. Draws nothing in the terminal, so it never doubles up with the script. |
-| [`git-diff-panel`](plugins/git-diff-panel) | Desktop app and terminal | A pane beside the chat that lists every file the agent and its subagents change in your git project, live, with lines added and deleted and who changed it. |
+| [`git-diff-panel`](plugins/git-diff-panel) | Desktop app and terminal | A pane beside the chat that lists every file changing in your git project as the agent works, with lines added and deleted. |
 
 ## The usage line
 
@@ -31,24 +31,18 @@ A **Git changes** pane that updates as the agent works:
 ```
 [ This session ]  [ vs HEAD ]
 
-main  3 files  +64 −7
+4 files changed  on main                 +54 −37
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-By agent
-main                    2f +52 −4
-Explore: tidy utils     1f +12 −3
-
-● A src/new.ts                         +40 −0
-██████████████████████████████
-main · 2s ago
-M src/utils.ts                         +12 −3
-███████▓▓
-Explore: tidy utils · 1m ago
+A new.ts     src             +40 −0   ■■■■■
+M old.ts     src/legacy       +0 −25  ■■■□□
+M README.md                   +2 −9   ■□□□□
+M utils.ts   src             +12 −3   ■■□□□
 ```
 
-- **This session** (the default) compares the working tree with how it was when the session started, so you see only what the agents did. **vs HEAD** shows everything uncommitted.
-- The bar's length is the file's share of the biggest change, green for added lines and red for deleted.
-- Each file says who changed it last: `main`, a subagent (its type and task), or `other` for a change made outside a tool call (you, an editor, a build). Edits and writes are credited exactly; a Bash command is credited with whatever changed while it ran.
-- A file changed in the last few seconds is marked `●`.
+- **This session** (the default) compares the working tree with how it was when the session started, so you see only what changed while you worked. **vs HEAD** shows everything uncommitted.
+- The thin bar under the totals is the overall split of added (green) and deleted (red) lines.
+- Each file has GitHub-style blocks: five squares, filled in proportion to the file's share of the biggest change, green for added lines and red for deleted. In the desktop app they're drawn as crisp graphics; in the terminal, as colored `■` characters.
 - Click a file to open its diff below it; click again to close it.
 - New, untracked files count. Files your `.gitignore` excludes don't.
 - `/git-diff` opens the pane again if you close it.

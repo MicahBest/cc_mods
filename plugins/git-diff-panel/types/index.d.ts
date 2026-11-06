@@ -5,10 +5,6 @@ export type DiffFile = {
   /** null for a binary file. */
   added: number | null
   deleted: number | null
-  /** Who last changed it: "main", a subagent's label, or "other". */
-  by: string
-  /** When its counts last changed (ms since epoch). */
-  changedAt: number
 }
 
 export type DiffSnapshot = {
