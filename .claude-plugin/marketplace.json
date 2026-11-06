@@ -13,7 +13,7 @@
     {
       "name": "git-diff-panel",
       "source": "./plugins/git-diff-panel",
-      "description": "A live pane of the files changing in your git project, with lines added and deleted per file"
+      "description": "A line above the prompt: files changed this session in your git project, the branch, and lines added and deleted"
     }
   ]
 }

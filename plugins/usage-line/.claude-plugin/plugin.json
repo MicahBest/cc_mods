@@ -1,6 +1,6 @@
 {
   "name": "usage-line",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Claude Code desktop app: context fill and 5-hour/weekly limit usage with reset countdowns, above the prompt",
   "author": { "name": "MicahBest" },
   "types": "./types/index.d.ts"

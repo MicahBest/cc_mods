@@ -1,33 +1,19 @@
-export type DiffFile = {
-  path: string
-  /** A added, D deleted, M modified, T type change. */
-  status: string
-  /** null for a binary file. */
-  added: number | null
-  deleted: number | null
-}
-
-export type DiffSnapshot = {
-  root: string | null
+/** What the band shows; null outside a git repository. */
+export type DiffSummary = {
   branch: string | null
-  files: DiffFile[]
-  error: string | null
-  checkedAt: number
-}
+  files: number
+  added: number
+  deleted: number
+} | null
 
 /** The session's starting point: a tree of the working tree as it was. */
 export type DiffBase = { root: string; tree: string } | null
 
-export type DiffMode = 'session' | 'head'
-
 declare module 'claude-code' {
   interface PluginState {
     'git-diff-panel': {
-      snapshot: Shaped<DiffSnapshot>
+      summary: Shaped<DiffSummary>
       base: Shaped<DiffBase>
-      mode: DiffMode
-      expanded: string | null
-      patch: string | null
     }
   }
 }

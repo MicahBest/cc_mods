@@ -68,7 +68,14 @@ export const register: Register = on => {
     if (text === null) {
       return next(e)
     }
-    const { Text } = $.ui.resolve(e)
-    return <Text dimColor>{text}</Text>
+    const { Box, Text } = $.ui.resolve(e)
+    // Keep what the mods beneath draw here (git-diff-panel's line), under this one.
+    const below = await next(e)
+    return (
+      <Box flexDirection="column">
+        <Text dimColor>{text}</Text>
+        {below}
+      </Box>
+    )
   })
 }
