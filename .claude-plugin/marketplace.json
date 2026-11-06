@@ -9,6 +9,11 @@
       "name": "usage-line",
       "source": "./plugins/usage-line",
       "description": "Desktop app: context fill and 5-hour/weekly limit usage with reset countdowns, above the prompt"
+    },
+    {
+      "name": "git-diff-panel",
+      "source": "./plugins/git-diff-panel",
+      "description": "A live pane of the files agents and subagents change in your git project, with lines added and deleted per file"
     }
   ]
 }

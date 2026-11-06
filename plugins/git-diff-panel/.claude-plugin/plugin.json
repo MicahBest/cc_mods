@@ -1,0 +1,7 @@
+{
+  "name": "git-diff-panel",
+  "version": "0.1.0",
+  "description": "A live pane of the files agents and subagents change in your git project, with lines added and deleted per file",
+  "author": { "name": "MicahBest" },
+  "types": "./types/index.d.ts"
+}
